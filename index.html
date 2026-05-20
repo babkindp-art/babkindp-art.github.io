@@ -1,961 +1,1362 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Realhunt — Ошейники и поводки для собак</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f6f1;
-      color: #2d2d2d;
-      line-height: 1.6;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    section {
-      padding: 90px 0;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      text-align: center;
-      color: #3f5d45;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto 50px;
-    }
-
-    /* Header */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #3f5d45;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo i {
-      color: #8b5e3c;
-    }
-
-    nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      padding: 10px 16px;
-      border-radius: 999px;
-      transition: 0.3s ease;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      background: #dfe9dd;
-      color: #2e4d34;
-    }
-
-    /* Hero */
-
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(rgba(248,246,241,0.72), rgba(248,246,241,0.88)),
-        url('https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
-    }
-
-    .hero-content {
-      max-width: 650px;
-    }
-
-    .hero h1 {
-      font-size: 3.4rem;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      color: #2e4d34;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      margin-bottom: 35px;
-      color: #555;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px 28px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background: #3f5d45;
-      color: white;
-      box-shadow: 0 10px 25px rgba(63, 93, 69, 0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: #314936;
-      box-shadow: 0 14px 28px rgba(63, 93, 69, 0.35);
-    }
-
-    /* Features */
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
-
-    .feature-card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: 0.35s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 35px rgba(0,0,0,0.1);
-    }
-
-    .feature-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 18px;
-      background: #edf3ea;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      color: #3f5d45;
-      font-size: 1.7rem;
-    }
-
-    .feature-card h3 {
-      margin-bottom: 12px;
-      color: #2f4734;
-    }
-
-    /* Products */
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 28px;
-      margin-top: 35px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: 0.35s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 35px rgba(0,0,0,0.12);
-    }
-
-    .product-image {
-      height: 220px;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .product-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .product-content {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .product-content h3 {
-      font-size: 1.05rem;
-      margin-bottom: 12px;
-      color: #2f4734;
-    }
-
-    .price {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #8b5e3c;
-      margin-bottom: 22px;
-    }
-
-    .product-content .btn {
-      margin-top: auto;
-      width: 100%;
-    }
-
-    .category-title {
-      margin-top: 50px;
-      margin-bottom: 10px;
-      color: #3f5d45;
-      font-size: 1.8rem;
-    }
-
-    /* Contacts */
-
-    .contacts-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .contact-card,
-    .map-placeholder {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 22px;
-      align-items: flex-start;
-    }
-
-    .contact-item i {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: #edf3ea;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #3f5d45;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .socials {
-      display: flex;
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .socials a {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      background: #edf3ea;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s ease;
-      color: #3f5d45;
-      font-size: 1.2rem;
-    }
-
-    .socials a:hover {
-      background: #3f5d45;
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    .map-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 320px;
-      background:
-        linear-gradient(rgba(63,93,69,0.12), rgba(63,93,69,0.12)),
-        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop') center/cover;
-      color: white;
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    /* Footer */
-
-    footer {
-      background: #2f4734;
-      color: white;
-      padding: 28px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .footer-inner a {
-      opacity: 0.85;
-      transition: 0.3s ease;
-    }
-
-    .footer-inner a:hover {
-      opacity: 1;
-    }
-
-    /* Modal */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.35s ease;
-      z-index: 2000;
-    }
-
-    .modal.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-content {
-      background: white;
-      width: 100%;
-      max-width: 480px;
-      border-radius: 26px;
-      padding: 35px;
-      position: relative;
-      transform: translateY(20px);
-      transition: 0.35s ease;
-    }
-
-    .modal.active .modal-content {
-      transform: translateY(0);
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      border: none;
-      background: #f2f2f2;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s ease;
-    }
-
-    .close-modal:hover {
-      background: #e4e4e4;
-    }
-
-    .modal h2 {
-      margin-bottom: 10px;
-      color: #2f4734;
-    }
-
-    .modal p {
-      color: #666;
-      margin-bottom: 25px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-      outline: none;
-      transition: 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      border-color: #3f5d45;
-      box-shadow: 0 0 0 4px rgba(63,93,69,0.12);
-    }
-
-    /* Toast */
-
-    .toast {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #3f5d45;
-      color: white;
-      padding: 16px 22px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: 0.35s ease;
-      z-index: 3000;
-    }
-
-    .toast.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    /* Animation */
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.7s ease;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-
-    @media (max-width: 768px) {
-      .hero {
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-
-      .section-title {
-        font-size: 1.9rem;
-      }
-
-      .header-inner {
-        justify-content: center;
-      }
-
-      nav {
-        justify-content: center;
-      }
-
-      .modal-content {
-        padding: 28px 22px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <div class="container header-inner">
-      <a href="#" class="logo">
-        <i class="fa-solid fa-dog"></i>
-        Realhunt.ru
-      </a>
-
-      <nav>
-        <a href="#products">Товары</a>
-        <a href="#features">Преимущества</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-content fade-up">
-      <h1>Надёжные ошейники и поводки для твоего друга</h1>
-
-      <p>
-        Стиль, комфорт и безопасность для каждой прогулки.
-        Аксессуары Realhunt созданы для активных собак и их владельцев.
-      </p>
-
-      <a href="#products" class="btn btn-primary">
-        <i class="fa-solid fa-paw"></i>
-        Посмотреть товары
-      </a>
-    </div>
-  </section>
-
-  <section id="features">
-    <div class="container">
-      <h2 class="section-title fade-up">Почему выбирают Realhunt</h2>
-
-      <p class="section-subtitle fade-up">
-        Надёжные материалы, удобная посадка и современный дизайн —
-        всё для комфортных прогулок в любое время года.
-      </p>
-
-      <div class="features-grid">
-
-        <div class="feature-card fade-up">
-          <div class="feature-icon">
-            <i class="fa-solid fa-shield-dog"></i>
-          </div>
-
-          <h3>Безопасная фурнитура</h3>
-
-          <p>
-            Прочные карабины и надёжные крепления обеспечивают
-            уверенный контроль даже во время активных прогулок.
-          </p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <div class="feature-icon">
-            <i class="fa-solid fa-leaf"></i>
-          </div>
-
-          <h3>Качественные материалы</h3>
-
-          <p>
-            Используем долговечный BioThane и мягкие элементы,
-            устойчивые к влаге и загрязнениям.
-          </p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <div class="feature-icon">
-            <i class="fa-solid fa-star"></i>
-          </div>
-
-          <h3>Модный дизайн</h3>
-
-          <p>
-            Натуральные оттенки и минималистичный стиль,
-            который подойдёт любой породе.
-          </p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <div class="feature-icon">
-            <i class="fa-solid fa-sliders"></i>
-          </div>
-
-          <h3>Регулировка размера</h3>
-
-          <p>
-            Удобная система настройки позволяет идеально
-            подогнать аксессуар под собаку.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="products">
-    <div class="container">
-
-      <h2 class="section-title fade-up">Наши товары</h2>
-
-      <p class="section-subtitle fade-up">
-        Подберите стильный и надёжный аксессуар для ежедневных прогулок.
-      </p>
-
-      <h3 class="category-title fade-up">Ошейники</h3>
-
-      <div class="products-grid">
-
-        <div class="product-card fade-up">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop" alt="">
-          </div>
-
-          <div class="product-content">
-            <h3>BioThane Green Reflective</h3>
-            <div class="price">1500₽</div>
-
-            <button
-              class="btn btn-primary order-btn"
-              data-product="Ошейник BioThane Green Reflective">
-              Заказать
-            </button>
-          </div>
-        </div>
-
-        <div class="product-card fade-up">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop" alt="">
-          </div>
-
-          <div class="product-content">
-            <h3>Оранжевый ошейник BioThane</h3>
-            <div class="price">1400₽</div>
-
-            <button
-              class="btn btn-primary order-btn"
-              data-product="Оранжевый ошейник BioThane">
-              Заказать
-            </button>
-          </div>
-        </div>
-
-        <div class="product-card fade-up">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop" alt="">
-          </div>
-
-          <div class="product-content">
-            <h3>Песочный ошейник Classic</h3>
-            <div class="price">1350₽</div>
-
-            <button
-              class="btn btn-primary order-btn"
-              data-product="Песочный ошейник Classic">
-              Заказать
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <h3 class="category-title fade-up">Поводки</h3>
-
-      <div class="products-grid">
-
-        <div class="product-card fade-up">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop" alt="">
-          </div>
-
-          <div class="product-content">
-            <h3>Оранжевый поводок BioThane 1.5 м</h3>
-            <div class="price">1400₽</div>
-
-            <button
-              class="btn btn-primary order-btn"
-              data-product="Оранжевый поводок BioThane 1.5 м">
-              Заказать
-            </button>
-          </div>
-        </div>
-
-        <div class="product-card fade-up">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1200&auto=format&fit=crop" alt="">
-          </div>
-
-          <div class="product-content">
-            <h3>Зелёный поводок BioThane 1.5 м</h3>
-            <div class="price">1400₽</div>
-
-            <button
-              class="btn btn-primary order-btn"
-              data-product="Зелёный поводок BioThane 1.5 м">
-              Заказать
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contacts">
-    <div class="container">
-
-      <h2 class="section-title fade-up">Контакты</h2>
-
-      <div class="contacts-wrapper">
-
-        <div class="contact-card fade-up">
-
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-
-            <div>
-              <h4>Адрес</h4>
-              <p>ул. Собачья, 15, Москва</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-
-            <div>
-              <h4>Телефон</h4>
-              <p>+7 (999) 123-45-67</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-
-            <div>
-              <h4>Email</h4>
-              <p>info@realhunt.ru</p>
-            </div>
-          </div>
-
-          <div class="socials">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-          </div>
-
-        </div>
-
-        <div class="map-placeholder fade-up">
-          Схема проезда
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Realhunt. Все права защищены.</p>
-
-      <a href="#">Политика конфиденциальности</a>
-    </div>
-  </footer>
-
-  <!-- Modal -->
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-
-      <button class="close-modal" id="closeModal">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <h2>Оформление заявки</h2>
-
-      <p>
-        Оставьте контакты — менеджер свяжется с вами в ближайшее время.
-      </p>
-
-      <form id="orderForm">
-
-        <div class="form-group">
-          <input
-            type="text"
-            id="name"
-            placeholder="Ваше имя"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Телефон"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <select id="productSelect" required>
-            <option value="">Выберите товар</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-          Отправить заявку
-        </button>
-
-      </form>
-
-    </div>
-  </div>
-
-  <!-- Toast -->
-
-  <div class="toast" id="toast">
-    Спасибо! Менеджер свяжется с вами в ближайшее время.
-  </div>
-
-  <script>
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-    const orderButtons = document.querySelectorAll('.order-btn');
-    const productSelect = document.getElementById('productSelect');
-    const orderForm = document.getElementById('orderForm');
-    const toast = document.getElementById('toast');
-
-    const products = [
-      'Ошейник BioThane Green Reflective',
-      'Оранжевый ошейник BioThane',
-      'Песочный ошейник Classic',
-      'Оранжевый поводок BioThane 1.5 м',
-      'Зелёный поводок BioThane 1.5 м'
-    ];
-
-    products.forEach(product => {
-      const option = document.createElement('option');
-      option.value = product;
-      option.textContent = product;
-      productSelect.appendChild(option);
-    });
-
-    orderButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const product = button.dataset.product;
-
-        productSelect.value = product;
-
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    function closeModalWindow() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    closeModal.addEventListener('click', closeModalWindow);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModalWindow();
-      }
-    });
-
-    orderForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      closeModalWindow();
-
-      toast.classList.add('show');
-
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3500);
-
-      orderForm.reset();
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Scroll animation
-
-    const fadeElements = document.querySelectorAll('.fade-up');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>realhunt – Аксессуары для собак из биотана</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            --primary: #2d5016;
+            --accent: #e8d4b8;
+            --light-bg: #f5f3f0;
+            --dark-text: #3a3a3a;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --header-height: 70px;
         }
-      });
-    }, {
-      threshold: 0.15
-    });
 
-    fadeElements.forEach(element => {
-      observer.observe(element);
-    });
-  </script>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0 20px;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-header {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(45, 80, 22, 0.25);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark-text);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ============================================
+           MOBILE MENU
+           ============================================ */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: white;
+                padding: 20px;
+                display: none;
+                border-bottom: 1px solid #e5e5e5;
+                z-index: 999;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 12px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            nav a:hover {
+                color: var(--primary);
+            }
+
+            .cta-header {
+                align-self: flex-start;
+            }
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.7) 0%, rgba(232, 212, 184, 0.3) 100%), 
+                        url('https://picsum.photos/1200/800?random=1');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-top: -var(--header-height);
+            padding-top: var(--header-height);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding: 40px 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(232, 212, 184, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+
+        /* ============================================
+           SECTIONS & CONTAINERS
+           ============================================ */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+
+        /* ============================================
+           ADVANTAGES SECTION
+           ============================================ */
+        #advantages {
+            background: var(--light-bg);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .advantage-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .advantage-card:nth-child(1) { animation-delay: 0.1s; }
+        .advantage-card:nth-child(2) { animation-delay: 0.2s; }
+        .advantage-card:nth-child(3) { animation-delay: 0.3s; }
+        .advantage-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(45, 80, 22, 0.1);
+        }
+
+        .advantage-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .advantage-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .advantage-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ============================================
+           CATALOG SECTION
+           ============================================ */
+        #catalog {
+            background: white;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.15s; }
+        .product-card:nth-child(3) { animation-delay: 0.2s; }
+        .product-card:nth-child(4) { animation-delay: 0.25s; }
+        .product-card:nth-child(5) { animation-delay: 0.3s; }
+        .product-card:nth-child(6) { animation-delay: 0.35s; }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 32px rgba(45, 80, 22, 0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+
+        .product-card p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        .btn-buy:hover {
+            background: #1f3810;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           DELIVERY SECTION
+           ============================================ */
+        #delivery {
+            background: var(--light-bg);
+        }
+
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .delivery-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .delivery-card:nth-child(1) { animation-delay: 0.1s; }
+        .delivery-card:nth-child(2) { animation-delay: 0.2s; }
+        .delivery-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .delivery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(45, 80, 22, 0.12);
+        }
+
+        .delivery-icon {
+            font-size: 52px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .delivery-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .delivery-card .price-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .delivery-card .price-tag.free {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .delivery-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .delivery-info {
+            font-size: 13px;
+            color: #999;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 15px;
+        }
+
+        .delivery-info strong {
+            color: var(--dark-text);
+            display: block;
+            margin-top: 8px;
+        }
+
+        /* ============================================
+           REVIEWS SECTION
+           ============================================ */
+        #reviews {
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+            border: 1px solid #f0f0f0;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        #contacts {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 18px;
+            margin-top: 2px;
+            width: 24px;
+        }
+
+        .contact-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* FORM STYLES */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-text);
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: #1f3810;
+            transform: translateY(-2px);
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* ============================================
+           MODAL
+           ============================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark-text);
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           RESPONSIVE ADJUSTMENTS
+           ============================================ */
+        @media (max-width: 768px) {
+            section {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .advantages-grid,
+            .products-grid,
+            .delivery-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+    ========================================
+    ИНСТРУКЦИЯ ДЛЯ РАЗРАБОТЧИКА
+    ========================================
+    1. Замените "your-email@example.com" на ваш реальный email в action форме (поиск: "formsubmit.co")
+    2. Замените placeholder-ссылки изображений:
+       - https://picsum.photos/1200/800?random=X → на реальные изображения собак с аксессуарами
+       - https://picsum.photos/300?random=X → на реальные фото товаров
+       - https://picsum.photos/100?random=X → на аватарки отзывов
+    3. FormSubmit требует подтверждения email перед активацией. Перейдите по ссылке в письме после первой отправки.
+    4. Обновите текст товаров, цены и описания на реальные данные.
+    5. Сайт полностью работает офлайн (без интернета) благодаря placeholder CDN.
+    ========================================
+    -->
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <a href="#hero" class="logo">realhunt</a>
+        <nav id="nav">
+            <a href="#hero">Главная</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#delivery">Доставка</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+        <button class="cta-header" onclick="scrollToSection('#contacts')">Связаться</button>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============ HERO SECTION ============ -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Надёжные аксессуары для вашего верного друга</h1>
+                <p>Ошейники и поводки из биотана — прочные, лёгкие в уходе и безопасные</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('#catalog')">Каталог</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('#contacts')">Заказать</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ADVANTAGES SECTION ============ -->
+        <section id="advantages">
+            <div class="container">
+                <h2 class="section-title">Почему realhunt?</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <i class="fas fa-shield-alt advantage-icon"></i>
+                        <h3>Долговечность</h3>
+                        <p>Биотан выдерживает любые нагрузки и прослужит долгие годы верного службы</p>
+                    </div>
+                    <div class="advantage-card">
+                        <i class="fas fa-water advantage-icon"></i>
+                        <h3>Лёгкость ухода</h3>
+                        <p>Просто протрите влажной тканью — никакой химии, всё просто и быстро</p>
+                    </div>
+                    <div class="advantage-card">
+                        <i class="fas fa-leaf advantage-icon"></i>
+                        <h3>Экологичный биотан</h3>
+                        <p>Материал разработан с заботой о природе и безопасности вашего питомца</p>
+                    </div>
+                    <div class="advantage-card">
+                        <i class="fas fa-heart advantage-icon"></i>
+                        <h3>Комфорт питомца</h3>
+                        <p>Мягкий материал, эргономичный дизайн — ваша собака будет благодарна</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CATALOG SECTION ============ -->
+        <section id="catalog">
+            <div class="container">
+                <h2 class="section-title">Каталог товаров</h2>
+                
+                <div class="category-filter">
+                    <button class="filter-btn active" onclick="filterProducts('all')">Все товары</button>
+                    <button class="filter-btn" onclick="filterProducts('collars')">Ошейники</button>
+                    <button class="filter-btn" onclick="filterProducts('leashes')">Поводки</button>
+                    <button class="filter-btn" onclick="filterProducts('sets')">Наборы</button>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Ошейники -->
+                    <div class="product-card" data-category="collars">
+                        <img src="https://picsum.photos/300/250?random=1" alt="Ошейник RealHunt Explorer" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Ошейник</span>
+                            <h3>RealHunt Explorer</h3>
+                            <p>Прочный ошейник ширина 25 мм, регулируемый размер 30–45 см. Идеален для активных собак.</p>
+                            <div class="product-price">1 899 ₽</div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Explorer')">Купить</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="collars">
+                        <img src="https://github.com/babkindp-art/babkindp-art.github.io/blob/351f9470471e15d5c7bafb446b0e706d6bf1992e/2.PNG" alt="Ошейник RealHunt Comfort" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Ошейник</span>
+                            <h3>RealHunt Comfort</h3>
+                            <p>Мягкий и удобный ошейник для ежедневного использования. Размер 35–50 см, ширина 20 мм.</p>
+                            <div class="product-price">1 699 ₽</div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Comfort')">Купить</button>
+                        </div>
+                    </div>
+
+                    <!-- Поводки -->
+                    <div class="product-card" data-category="leashes">
+                        <img src="https://picsum.photos/300/250?random=3" alt="Поводок RealHunt Pro" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Поводок</span>
+                            <h3>RealHunt Pro</h3>
+                            <p>Прочный поводок длиной 200 см из биотана. Устойчив к истиранию, легко мыть.</p>
+                            <div class="product-price">2 499 ₽</div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Pro')">Купить</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="leashes">
+                        <img src="https://picsum.photos/300/250?random=4" alt="Поводок RealHunt Eco" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Поводок</span>
+                            <h3>RealHunt Eco</h3>
+                            <p>Экологичный поводок 150 см для щенков и средних собак. Лёгкий и прочный.</p>
+                            <div class="product-price">1 799 ₽</div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Eco')">Купить</button>
+                        </div>
+                    </div>
+
+                    <!-- Наборы -->
+                    <div class="product-card" data-category="sets">
+                        <img src="https://picsum.photos/300/250?random=5" alt="Набор RealHunt Complete" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Набор</span>
+                            <h3>RealHunt Complete</h3>
+                            <p>Полный набор: ошейник + поводок 200 см + миска. Идеально для новичков!</p>
+                            <div class="product-price">4 299 ₽<span style="text-decoration: line-through; color: #999; margin-left: 10px;">4 799 ₽</span></div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Complete')">Купить</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sets">
+                        <img src="https://picsum.photos/300/250?random=6" alt="Набор RealHunt Travel" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Набор</span>
+                            <h3>RealHunt Travel</h3>
+                            <p>Дорожный набор: компактный ошейник + поводок 150 см + сумка для хранения.</p>
+                            <div class="product-price">3 899 ₽<span style="text-decoration: line-through; color: #999; margin-left: 10px;">4 299 ₽</span></div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Travel')">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DELIVERY SECTION ============ -->
+        <section id="delivery">
+            <div class="container">
+                <h2 class="section-title">Доставка</h2>
+                <div class="delivery-grid">
+                    <div class="delivery-card">
+                        <i class="fas fa-truck delivery-icon"></i>
+                        <h3>Стандартная доставка</h3>
+                        <div class="price-tag">от 250 ₽</div>
+                        <p>Доставка по Санкт-Петербургу и области за 3–5 рабочих дней. Через Озон до ПВЗ.</p>
+                        <div class="delivery-info">
+                            <strong>В пределах КАД</strong>
+                            Доставляем на пункты выдачи
+                        </div>
+                    </div>
+
+                    <div class="delivery-card">
+                        <i class="fas fa-bolt delivery-icon"></i>
+                        <h3>Экспресс доставка</h3>
+                        <div class="price-tag">от 500 ₽</div>
+                        <p>Для срочных заказов обсуждаем индивидуально.</p>
+                        <div class="delivery-info">
+                            <strong>Только рабочие дни</strong>
+                            Заказ до 14:00 — доставка на следующий день до 18:00
+                        </div>
+                    </div>
+
+                    <div class="delivery-card">
+                        <i class="fas fa-store delivery-icon"></i>
+                        <h3>Самовывоз</h3>
+                        <div class="price-tag free">Бесплатно</div>
+                        <p>Забрать в СПб можно самостоятельно. Работаем пн–пят с 10:00 до 16:00.</p>
+                        <div class="delivery-info">
+                            <strong>Адрес:</strong>
+                            БЦ Интеграл, ул. Лифляндская, д.6, корп.6
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 30px; border-radius: var(--border-radius); margin-top: 50px; box-shadow: var(--shadow); text-align: center;">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">Дополнительная информация о доставке</h3>
+                    <p style="color: #666; margin-bottom: 12px;"><strong>Доставка по России:</strong> Работаем через OZON.Доставку. Сроки и стоимость рассчитываются индивидуально.</p>
+                    <p style="color: #666; margin-bottom: 12px;"><strong>Упаковка:</strong> Каждый заказ упакован в прочный картон с защитой от влаги.</p>
+                    <p style="color: #666;"><strong>Гарантия:</strong> При получении товара проверьте целостность упаковки. Повреждённый товар подлежит замене.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ REVIEWS SECTION ============ -->
+        <section id="reviews">
+            <div class="container">
+                <h2 class="section-title">Отзывы наших клиентов</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="https://picsum.photos/100?random=1" alt="Клиент" class="review-avatar">
+                            <div>
+                                <div class="review-author">Мария К.</div>
+                                <div class="review-date">2 недели назад</div>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>«Отличный ошейник! Мой Барон носит уже месяц, и материал как новый. Очень доволена качеством и сервисом.»</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="https://picsum.photos/100?random=2" alt="Клиент" class="review-avatar">
+                            <div>
+                                <div class="review-author">Иван П.</div>
+                                <div class="review-date">1 месяц назад</div>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>«Купил набор Travel для путешествий. Всё компактно, удобно, а собака чувствует себя комфортно. Рекомендую!»</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="https://picsum.photos/100?random=3" alt="Клиент" class="review-avatar">
+                            <div>
+                                <div class="review-author">Анна С.</div>
+                                <div class="review-date">3 недели назад</div>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★☆</div>
+                        <p>«Поводок очень прочный и практичный. Всё быстро доставили. Спасибо за отличный сервис!»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACTS SECTION ============ -->
+        <section id="contacts">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Контактная информация</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p><strong>Адрес:</strong><br>Санкт-Петербург, БЦ Интеграл, ул. Лифляндская, д.6, корп.6</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p><strong>Телефон:</strong><br>+7 (812) 123-45-67</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p><strong>Email:</strong><br>realhunt@bk.ru</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <p><strong>Время работы:</strong><br>Пн–Пт: 9:00–18:00<br>Сб–Вс: 10:00–17:00</p>
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://facebook.com" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://vk.com" aria-label="VK" title="VK"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="color: var(--primary); margin-bottom: 20px;">Быстрый заказ</h3>
+                        <form id="contactForm" action="https://formsubmit.co/realhunt@bk.ru" method="POST">
+                            <div class="form-group">
+                                <label for="name">Ваше имя *</label>
+                                <input type="text" id="name" name="name" required aria-label="Имя">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон *</label>
+                                <input type="tel" id="phone" name="phone" required aria-label="Телефон">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" aria-label="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="product">Товар / Комментарий</label>
+                                <textarea id="product" name="message" aria-label="Сообщение"></textarea>
+                            </div>
+                            <input type="hidden" name="_subject" value="Новый заказ с сайта realhunt">
+                            <input type="hidden" name="_captcha" value="false">
+                            <button type="submit" class="form-submit">Отправить заказ</button>
+                            <div class="form-message" id="formMessage"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ MODAL ============ -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Быстрый заказ</h2>
+            <form id="quickOrderForm">
+                <div class="form-group">
+                    <label for="modalProduct">Товар</label>
+                    <input type="text" id="modalProduct" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="modalName">Ваше имя *</label>
+                    <input type="text" id="modalName" required aria-label="Имя">
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Телефон *</label>
+                    <input type="tel" id="modalPhone" required aria-label="Телефон">
+                </div>
+                <button type="submit" class="form-submit">Заказать</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <p>&copy; 2017 realhunt. Все права защищены. | <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+    </footer>
+
+    <script>
+        // ============ NAVIGATION & SCROLL ============
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Закрыть меню при клике на ссылку
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        function scrollToSection(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                nav.classList.remove('active');
+            }
+        }
+
+        // ============ PRODUCT FILTER ============
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 0.6s ease forwards';
+                } else if (card.dataset.category === category) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 0.6s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ============ MODAL FUNCTIONALITY ============
+        const modal = document.getElementById('orderModal');
+        const modalProduct = document.getElementById('modalProduct');
+        const quickOrderForm = document.getElementById('quickOrderForm');
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        function openModal(productName) {
+            modalProduct.value = productName;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // ============ FORM SUBMISSION ============
+        quickOrderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('modalName').value;
+            const phone = document.getElementById('modalPhone').value;
+            const product = document.getElementById('modalProduct').value;
+
+            // Перенести данные в основную форму
+            document.getElementById('name').value = name;
+            document.getElementById('phone').value = phone;
+            document.getElementById('product').value = `Товар: ${product}`;
+
+            closeModal();
+            quickOrderForm.reset();
+
+            // Показать сообщение
+            formMessage.textContent = 'Спасибо! Ваш заказ готов к отправке. Прокрутите вниз и нажмите "Отправить заказ" в форме ниже.';
+            formMessage.classList.add('success');
+
+            setTimeout(() => {
+                formMessage.classList.remove('success');
+            }, 5000);
+
+            scrollToSection('#contacts');
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            if (!name || !phone) {
+                e.preventDefault();
+                formMessage.textContent = 'Пожалуйста, заполните имя и телефон.';
+                formMessage.classList.add('error');
+                setTimeout(() => formMessage.classList.remove('error'), 5000);
+            }
+        });
+
+        // ============ CLOSE MODAL ON ESC ============
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ============ SMOOTH ANCHOR LINKS ============
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    scrollToSection(href);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
