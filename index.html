@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realhunt — Ошейники и поводки для собак</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f6f1;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #3f5d45;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #3f5d45;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      color: #8b5e3c;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background: #dfe9dd;
+      color: #2e4d34;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(248,246,241,0.72), rgba(248,246,241,0.88)),
+        url('https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 3.4rem;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #2e4d34;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 35px;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #3f5d45;
+      color: white;
+      box-shadow: 0 10px 25px rgba(63, 93, 69, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #314936;
+      box-shadow: 0 14px 28px rgba(63, 93, 69, 0.35);
+    }
+
+    /* Features */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: 0.35s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: #edf3ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: #3f5d45;
+      font-size: 1.7rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 12px;
+      color: #2f4734;
+    }
+
+    /* Products */
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+      margin-top: 35px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    }
+
+    .product-image {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-content h3 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      color: #2f4734;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #8b5e3c;
+      margin-bottom: 22px;
+    }
+
+    .product-content .btn {
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .category-title {
+      margin-top: 50px;
+      margin-bottom: 10px;
+      color: #3f5d45;
+      font-size: 1.8rem;
+    }
+
+    /* Contacts */
+
+    .contacts-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .map-placeholder {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+
+    .contact-item i {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #edf3ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3f5d45;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .socials {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .socials a {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: #edf3ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s ease;
+      color: #3f5d45;
+      font-size: 1.2rem;
+    }
+
+    .socials a:hover {
+      background: #3f5d45;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .map-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+      background:
+        linear-gradient(rgba(63,93,69,0.12), rgba(63,93,69,0.12)),
+        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop') center/cover;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #2f4734;
+      color: white;
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-inner a {
+      opacity: 0.85;
+      transition: 0.3s ease;
+    }
+
+    .footer-inner a:hover {
+      opacity: 1;
+    }
+
+    /* Modal */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.35s ease;
+      z-index: 2000;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: white;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 26px;
+      padding: 35px;
+      position: relative;
+      transform: translateY(20px);
+      transition: 0.35s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      border: none;
+      background: #f2f2f2;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .close-modal:hover {
+      background: #e4e4e4;
+    }
+
+    .modal h2 {
+      margin-bottom: 10px;
+      color: #2f4734;
+    }
+
+    .modal p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #3f5d45;
+      box-shadow: 0 0 0 4px rgba(63,93,69,0.12);
+    }
+
+    /* Toast */
+
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #3f5d45;
+      color: white;
+      padding: 16px 22px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: 0.35s ease;
+      z-index: 3000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Animation */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+      }
+
+      .header-inner {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .modal-content {
+        padding: 28px 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-dog"></i>
+        Realhunt.ru
+      </a>
+
+      <nav>
+        <a href="#products">Товары</a>
+        <a href="#features">Преимущества</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content fade-up">
+      <h1>Надёжные ошейники и поводки для твоего друга</h1>
+
+      <p>
+        Стиль, комфорт и безопасность для каждой прогулки.
+        Аксессуары Realhunt созданы для активных собак и их владельцев.
+      </p>
+
+      <a href="#products" class="btn btn-primary">
+        <i class="fa-solid fa-paw"></i>
+        Посмотреть товары
+      </a>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title fade-up">Почему выбирают Realhunt</h2>
+
+      <p class="section-subtitle fade-up">
+        Надёжные материалы, удобная посадка и современный дизайн —
+        всё для комфортных прогулок в любое время года.
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-card fade-up">
+          <div class="feature-icon">
+            <i class="fa-solid fa-shield-dog"></i>
+          </div>
+
+          <h3>Безопасная фурнитура</h3>
+
+          <p>
+            Прочные карабины и надёжные крепления обеспечивают
+            уверенный контроль даже во время активных прогулок.
+          </p>
+        </div>
+
+        <div class="feature-card fade-up">
+          <div class="feature-icon">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+
+          <h3>Качественные материалы</h3>
+
+          <p>
+            Используем долговечный BioThane и мягкие элементы,
+            устойчивые к влаге и загрязнениям.
+          </p>
+        </div>
+
+        <div class="feature-card fade-up">
+          <div class="feature-icon">
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <h3>Модный дизайн</h3>
+
+          <p>
+            Натуральные оттенки и минималистичный стиль,
+            который подойдёт любой породе.
+          </p>
+        </div>
+
+        <div class="feature-card fade-up">
+          <div class="feature-icon">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+
+          <h3>Регулировка размера</h3>
+
+          <p>
+            Удобная система настройки позволяет идеально
+            подогнать аксессуар под собаку.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="container">
+
+      <h2 class="section-title fade-up">Наши товары</h2>
+
+      <p class="section-subtitle fade-up">
+        Подберите стильный и надёжный аксессуар для ежедневных прогулок.
+      </p>
+
+      <h3 class="category-title fade-up">Ошейники</h3>
+
+      <div class="products-grid">
+
+        <div class="product-card fade-up">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="product-content">
+            <h3>BioThane Green Reflective</h3>
+            <div class="price">1500₽</div>
+
+            <button
+              class="btn btn-primary order-btn"
+              data-product="Ошейник BioThane Green Reflective">
+              Заказать
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card fade-up">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="product-content">
+            <h3>Оранжевый ошейник BioThane</h3>
+            <div class="price">1400₽</div>
+
+            <button
+              class="btn btn-primary order-btn"
+              data-product="Оранжевый ошейник BioThane">
+              Заказать
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card fade-up">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="product-content">
+            <h3>Песочный ошейник Classic</h3>
+            <div class="price">1350₽</div>
+
+            <button
+              class="btn btn-primary order-btn"
+              data-product="Песочный ошейник Classic">
+              Заказать
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 class="category-title fade-up">Поводки</h3>
+
+      <div class="products-grid">
+
+        <div class="product-card fade-up">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="product-content">
+            <h3>Оранжевый поводок BioThane 1.5 м</h3>
+            <div class="price">1400₽</div>
+
+            <button
+              class="btn btn-primary order-btn"
+              data-product="Оранжевый поводок BioThane 1.5 м">
+              Заказать
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card fade-up">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="product-content">
+            <h3>Зелёный поводок BioThane 1.5 м</h3>
+            <div class="price">1400₽</div>
+
+            <button
+              class="btn btn-primary order-btn"
+              data-product="Зелёный поводок BioThane 1.5 м">
+              Заказать
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="container">
+
+      <h2 class="section-title fade-up">Контакты</h2>
+
+      <div class="contacts-wrapper">
+
+        <div class="contact-card fade-up">
+
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+
+            <div>
+              <h4>Адрес</h4>
+              <p>ул. Собачья, 15, Москва</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+
+            <div>
+              <h4>Телефон</h4>
+              <p>+7 (999) 123-45-67</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+
+            <div>
+              <h4>Email</h4>
+              <p>info@realhunt.ru</p>
+            </div>
+          </div>
+
+          <div class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+
+        </div>
+
+        <div class="map-placeholder fade-up">
+          Схема проезда
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Realhunt. Все права защищены.</p>
+
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+
+      <button class="close-modal" id="closeModal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2>Оформление заявки</h2>
+
+      <p>
+        Оставьте контакты — менеджер свяжется с вами в ближайшее время.
+      </p>
+
+      <form id="orderForm">
+
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            placeholder="Ваше имя"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Телефон"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <select id="productSelect" required>
+            <option value="">Выберите товар</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Отправить заявку
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+
+  <div class="toast" id="toast">
+    Спасибо! Менеджер свяжется с вами в ближайшее время.
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+    const orderButtons = document.querySelectorAll('.order-btn');
+    const productSelect = document.getElementById('productSelect');
+    const orderForm = document.getElementById('orderForm');
+    const toast = document.getElementById('toast');
+
+    const products = [
+      'Ошейник BioThane Green Reflective',
+      'Оранжевый ошейник BioThane',
+      'Песочный ошейник Classic',
+      'Оранжевый поводок BioThane 1.5 м',
+      'Зелёный поводок BioThane 1.5 м'
+    ];
+
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product;
+      option.textContent = product;
+      productSelect.appendChild(option);
+    });
+
+    orderButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.dataset.product;
+
+        productSelect.value = product;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModalWindow() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    closeModal.addEventListener('click', closeModalWindow);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModalWindow();
+      }
+    });
+
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      closeModalWindow();
+
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+
+      orderForm.reset();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll animation
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
