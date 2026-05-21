@@ -184,7 +184,7 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, rgba(45, 80, 22, 0.7) 0%, rgba(232, 212, 184, 0.3) 100%), 
-                        url('https://picsum.photos/1200/800?random=1');
+                        url('images/IMG_0943.JPG');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -418,10 +418,22 @@
             box-shadow: 0 16px 32px rgba(45, 80, 22, 0.12);
         }
 
-        .product-image {
+        .product-image-wrapper {
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            background: linear-gradient(135deg, #f9f7f4 0%, #f5f3f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            padding: 15px;
             display: block;
         }
 
@@ -988,64 +1000,89 @@
                 <div class="products-grid" id="productsGrid">
                     <!-- Ошейники -->
                     <div class="product-card" data-category="collars">
-                        <img src="https://picsum.photos/300/250?random=1" alt="Ошейник RealHunt Explorer" class="product-image">
+                        <div class="product-image-wrapper">
+                            <img src="images/1.PNG" alt="Ошейник RealHunt Explorer" class="product-image">
+                        </div>
                         <div class="product-info">
                             <span class="product-category">Ошейник</span>
                             <h3>RealHunt Explorer</h3>
-                            <p>Прочный ошейник ширина 25 мм, регулируемый размер 30–45 см. Идеален для активных собак.</p>
-                            <div class="product-price">1 899 ₽</div>
+                            <p>Прочный ошейник из Биотана, Оранжевый со светоотражающей полосой. Ширина 25 мм, регулируемый размер. Идеален для активных собак.</p>
+                            <div class="product-price">1 900 ₽</div>
                             <button class="btn-buy" onclick="openModal('RealHunt Explorer')">Купить</button>
                         </div>
                     </div>
 
                     <div class="product-card" data-category="collars">
-                        <img src="images/2.PNG" alt="Ошейник RealHunt Comfort" class="product-image">
+                        <div class="product-image-wrapper">
+                            <img src="images/IMG_600.jpg" alt="Ошейник RealHunt Pro" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Ошейник</span>
+                            <h3>RealHunt Explorer</h3>
+                            <p>Прочный ошейник из Биотана, Зеленый камуфляж. Ширина 25 мм, регулируемый размер. Идеален для активных собак.</p>
+                            <div class="product-price">2 100 ₽</div>
+                            <button class="btn-buy" onclick="openModal('RealHunt Explorer')">Купить</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="collars">
+                        <div class="product-image-wrapper">
+                            <img src="images/IMG_619.jpg" alt="Ошейник RealHunt Comfort" class="product-image">
+                        </div>
                         <div class="product-info">
                             <span class="product-category">Ошейник</span>
                             <h3>RealHunt Comfort</h3>
-                            <p>Мягкий и удобный ошейник для ежедневного использования. Размер 35–50 см, ширина 20 мм.</p>
-                            <div class="product-price">1 699 ₽</div>
+                            <p>Мягкий и удобный ошейник для ежедневного использования из Биотана. Цвет: салатовый. Размер 35–50 см, ширина 25 мм.</p>
+                            <div class="product-price">1 800 ₽</div>
                             <button class="btn-buy" onclick="openModal('RealHunt Comfort')">Купить</button>
                         </div>
                     </div>
 
                     <!-- Поводки -->
                     <div class="product-card" data-category="leashes">
-                        <img src="https://picsum.photos/300/250?random=3" alt="Поводок RealHunt Pro" class="product-image">
+                        <div class="product-image-wrapper">
+                            <img src="images/IMG_0214.JPG" alt="Поводок RealHunt Pro" class="product-image">
+                        </div>
                         <div class="product-info">
                             <span class="product-category">Поводок</span>
                             <h3>RealHunt Pro</h3>
-                            <p>Прочный поводок длиной 200 см из биотана. Устойчив к истиранию, легко мыть.</p>
-                            <div class="product-price">2 499 ₽</div>
+                            <p>Прочный поводок длиной 150 см из биотана. Цвет оранжевый. Устойчив к истиранию, легко мыть.</p>
+                            <div class="product-price">2 100 ₽</div>
                             <button class="btn-buy" onclick="openModal('RealHunt Pro')">Купить</button>
                         </div>
                     </div>
 
                     <div class="product-card" data-category="leashes">
-                        <img src="https://picsum.photos/300/250?random=4" alt="Поводок RealHunt Eco" class="product-image">
+                        <div class="product-image-wrapper">
+                            <img src="images/IMG_0785.JPG" alt="Поводок RealHunt Eco" class="product-image">
+                        </div>
                         <div class="product-info">
                             <span class="product-category">Поводок</span>
                             <h3>RealHunt Eco</h3>
-                            <p>Экологичный поводок 150 см для щенков и средних собак. Лёгкий и прочный.</p>
-                            <div class="product-price">1 799 ₽</div>
+                            <p>Прочный поводок длиной 150 см из Биотана. Лёгкий и прочный. Цвет салатовый.</p>
+                            <div class="product-price">2 100 ₽</div>
                             <button class="btn-buy" onclick="openModal('RealHunt Eco')">Купить</button>
                         </div>
                     </div>
 
                     <!-- Наборы -->
                     <div class="product-card" data-category="sets">
-                        <img src="https://picsum.photos/300/250?random=5" alt="Набор RealHunt Complete" class="product-image">
+                        <div class="product-image-wrapper">
+                            <img src="https://picsum.photos/300/250?random=5" alt="Набор RealHunt Complete" class="product-image">
+                        </div>
                         <div class="product-info">
                             <span class="product-category">Набор</span>
                             <h3>RealHunt Complete</h3>
-                            <p>Полный набор: ошейник + поводок 200 см + миска. Идеально для новичков!</p>
-                            <div class="product-price">4 299 ₽<span style="text-decoration: line-through; color: #999; margin-left: 10px;">4 799 ₽</span></div>
+                            <p>Полный набор: ошейник + поводок 150 см. Идеально для новичков!</p>
+                            <div class="product-price">3 700 ₽<span style="text-decoration: line-through; color: #999; margin-left: 10px;">4 799 ₽</span></div>
                             <button class="btn-buy" onclick="openModal('RealHunt Complete')">Купить</button>
                         </div>
                     </div>
 
                     <div class="product-card" data-category="sets">
-                        <img src="https://picsum.photos/300/250?random=6" alt="Набор RealHunt Travel" class="product-image">
+                        <div class="product-image-wrapper">
+                            <img src="https://picsum.photos/300/250?random=6" alt="Набор RealHunt Travel" class="product-image">
+                        </div>
                         <div class="product-info">
                             <span class="product-category">Набор</span>
                             <h3>RealHunt Travel</h3>
@@ -1066,19 +1103,19 @@
                     <div class="delivery-card">
                         <i class="fas fa-truck delivery-icon"></i>
                         <h3>Стандартная доставка</h3>
-                        <div class="price-tag">от 250 ₽</div>
-                        <p>Доставка по Санкт-Петербургу и области за 3–5 рабочих дней. Через Озон до ПВЗ.</p>
+                        <div class="price-tag">250 ₽</div>
+                        <p>Доставка по Санкт-Петербургу и области за 3–5 рабочих дней. Надежные курьерские службы.</p>
                         <div class="delivery-info">
-                            <strong>В пределах КАД</strong>
-                            Доставляем на пункты выдачи
+                            <strong>В пределах МКАД</strong>
+                            Доставляем в квартиры и на пункты выдачи
                         </div>
                     </div>
 
                     <div class="delivery-card">
                         <i class="fas fa-bolt delivery-icon"></i>
                         <h3>Экспресс доставка</h3>
-                        <div class="price-tag">от 500 ₽</div>
-                        <p>Для срочных заказов обсуждаем индивидуально.</p>
+                        <div class="price-tag">500 ₽</div>
+                        <p>Доставка в течение 24 часов по центру города. Идеально для срочных заказов.</p>
                         <div class="delivery-info">
                             <strong>Только рабочие дни</strong>
                             Заказ до 14:00 — доставка на следующий день до 18:00
@@ -1089,18 +1126,18 @@
                         <i class="fas fa-store delivery-icon"></i>
                         <h3>Самовывоз</h3>
                         <div class="price-tag free">Бесплатно</div>
-                        <p>Забрать в СПб можно самостоятельно. Работаем пн–пят с 10:00 до 16:00.</p>
+                        <p>Забрать заказ с нашего магазина. Работаем пн–вс с 10:00 до 19:00.</p>
                         <div class="delivery-info">
                             <strong>Адрес:</strong>
-                            БЦ Интеграл, ул. Лифляндская, д.6, корп.6
+                            ул. Невский пр., 15, офис 305
                         </div>
                     </div>
                 </div>
 
                 <div style="background: white; padding: 30px; border-radius: var(--border-radius); margin-top: 50px; box-shadow: var(--shadow); text-align: center;">
                     <h3 style="color: var(--primary); margin-bottom: 15px;">Дополнительная информация о доставке</h3>
-                    <p style="color: #666; margin-bottom: 12px;"><strong>Доставка по России:</strong> Работаем через OZON.Доставку. Сроки и стоимость рассчитываются индивидуально.</p>
-                    <p style="color: #666; margin-bottom: 12px;"><strong>Упаковка:</strong> Каждый заказ упакован в прочный картон с защитой от влаги.</p>
+                    <p style="color: #666; margin-bottom: 12px;"><strong>Доставка по России:</strong> Работаем через Яндекс.Доставку и CDEK. Сроки и стоимость рассчитываются индивидуально.</p>
+                    <p style="color: #666; margin-bottom: 12px;"><strong>Упаковка:</strong> Каждый заказ упакован в прочный картон с защитой от влаги. На стекле отсутствует.</p>
                     <p style="color: #666;"><strong>Гарантия:</strong> При получении товара проверьте целостность упаковки. Повреждённый товар подлежит замене.</p>
                 </div>
             </div>
@@ -1159,7 +1196,7 @@
                         <h3>Контактная информация</h3>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <p><strong>Адрес:</strong><br>Санкт-Петербург, БЦ Интеграл, ул. Лифляндская, д.6, корп.6</p>
+                            <p><strong>Адрес:</strong><br>Санкт-Петербург, ул. Невский пр., д. 15</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -1167,7 +1204,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <p><strong>Email:</strong><br>realhunt@bk.ru</p>
+                            <p><strong>Email:</strong><br>hello@realhunt.ru</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
@@ -1182,7 +1219,7 @@
 
                     <div>
                         <h3 style="color: var(--primary); margin-bottom: 20px;">Быстрый заказ</h3>
-                        <form id="contactForm" action="https://formsubmit.co/realhunt@bk.ru" method="POST">
+                        <form id="contactForm" action="https://formsubmit.co/your-email@example.com" method="POST">
                             <div class="form-group">
                                 <label for="name">Ваше имя *</label>
                                 <input type="text" id="name" name="name" required aria-label="Имя">
@@ -1235,7 +1272,7 @@
 
     <!-- ============ FOOTER ============ -->
     <footer>
-        <p>&copy; 2017 realhunt. Все права защищены. | <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+        <p>&copy; 2024 realhunt. Все права защищены. | <a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
     </footer>
 
     <script>
