@@ -1221,6 +1221,11 @@
                     <div>
                         <h3 style="color: var(--primary); margin-bottom: 20px;">Быстрый заказ</h3>
                         <form id="contactForm" action="https://submit-form.com/WNwUzrAwe" method="POST">
+                            <!-- Скрытое поле для перенаправления после успешной отправки -->
+                            <input type="hidden" name="_redirect" value="https://realhunt.ru/" />
+                            <!-- Скрытое поле, чтобы не добавлять параметры в URL (чистая ссылка) -->
+                            <input type="hidden" name="_append" value="false" />
+
                             <div class="form-group">
                                 <label for="name">Ваше имя *</label>
                                 <input type="text" id="name" name="name" required aria-label="Имя">
